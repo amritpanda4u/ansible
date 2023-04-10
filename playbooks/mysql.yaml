@@ -1,0 +1,10 @@
+- name: Install mysql
+  apt: 
+    name: {{item}}
+    state: present
+    with-items:
+      - mysql-server
+      - MYSQL-python
+      - libselinux-python
+      - libsemanage-python
+      
