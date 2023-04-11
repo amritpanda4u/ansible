@@ -1,10 +1,14 @@
 - name: Install mysql
-  apt: 
-    name: {{item}}
-    state: present
-    with-items:
-      - mysql-server
-      - MYSQL-python
-      - libselinux-python
-      - libsemanage-python
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: MySQL
+    apt: 
+      name={{item}} 
+      state=present
+    with_items:
+    - mysql-server
+    - MySQL-python3
+    - libselinux-python3
+    - libsemanage-python3
       

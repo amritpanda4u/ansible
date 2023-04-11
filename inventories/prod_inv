@@ -1,6 +1,6 @@
 [webservers]
-server1 ansible_host=44.210.70.29
-
+server1 ansible_host=3.236.144.203
+server2 ansible_host=localhost
 [webservers:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_private_key_file=/home/ubuntu/.ssh/ansible-all-key.pem
