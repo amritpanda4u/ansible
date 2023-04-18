@@ -1,8 +1,16 @@
 - name: Install maven
   hosts: webservers
-  apt:
-      name: {{item}}
-      state: present
-      with-items:
-        - openjdk-11-jdk
-        - maven
+  become: yes
+  tasks:
+  - name: update-servers
+    apt:  
+     update_cache: true
+     cache_valid_time: 3600
+     force_apt_get: true
+  - name: webserver-installation
+    apt:
+      name={{item}}
+      state=present
+    with_items:
+    - openjdk-11-jdk
+    - maven
