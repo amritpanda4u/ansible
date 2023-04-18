@@ -1,0 +1,8 @@
+- name: Install maven
+  hosts: webservers
+  apt:
+      name: {{item}}
+      state: present
+      with-items:
+        - openjdk-11-jdk
+        - maven
